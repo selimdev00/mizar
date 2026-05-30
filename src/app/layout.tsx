@@ -22,7 +22,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const themeInit = `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();`;
+const themeInit = `(function(){var d=document.documentElement;d.classList.add('js');setTimeout(function(){d.classList.add('entered');},2600);try{var t=localStorage.getItem('theme');if(t==='light'){d.setAttribute('data-theme','light');}}catch(e){}})();`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -16,6 +16,7 @@ export default function Intro() {
       /* ignore */
     }
     if (seen || reduce) {
+      document.documentElement.classList.add('entered');
       setPhase('done');
       return;
     }
@@ -24,7 +25,10 @@ export default function Intro() {
     } catch {
       /* ignore */
     }
-    const t1 = window.setTimeout(() => setPhase('leaving'), 1100);
+    const t1 = window.setTimeout(() => {
+      setPhase('leaving');
+      document.documentElement.classList.add('entered');
+    }, 1100);
     const t2 = window.setTimeout(() => setPhase('done'), 1800);
     return () => {
       window.clearTimeout(t1);
