@@ -4,6 +4,7 @@ import About from '@/components/About';
 import Services from '@/components/Services';
 import TechStack from '@/components/TechStack';
 import Projects from '@/components/Projects';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <TechStack />
         <Projects />
       </main>
+      <Footer />
     </>
   );
 }
