@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mizar",
+  "compatibility_date": "2025-03-25",
+  "assets": {
+    "directory": "./out"
+  },
+  "routes": [{ "pattern": "mizar.selim.services", "custom_domain": true }]
+}
