@@ -1,0 +1,115 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+:root[data-theme='light'] .header {
+  background: rgba(243, 244, 236, 0.8);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.9rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.prompt {
+  color: var(--lime);
+  position: relative;
+}
+
+.prompt::after {
+  content: '_';
+  animation: blink 1.1s steps(1) infinite;
+}
+
+.brand {
+  color: var(--fg);
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.6rem, 1.5vw, 1.4rem);
+}
+
+.contacts {
+  display: none;
+  align-items: center;
+  gap: clamp(0.6rem, 1.5vw, 1.2rem);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.contactLink {
+  position: relative;
+  transition: color 0.2s var(--ease);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background: var(--lime);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ease);
+  }
+
+  &:hover {
+    color: var(--lime);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+.sep {
+  opacity: 0.4;
+}
+
+@media (min-width: 768px) {
+  .contacts {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prompt::after {
+    animation: none;
+  }
+  .contactLink,
+  .contactLink::after {
+    transition: none;
+  }
+}
