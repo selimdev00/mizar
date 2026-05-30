@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# friend Lee — концепт-редизайн
 
-## Getting Started
+Маркетинговый лендинг для студии веб-разработки **friend Lee** — это концепт-редизайн
+(rebrand) на основе их собственного фирменного стиля из питч-дека. Портфолио-работа,
+демонстрирующая современную верстку на чистом SCSS без CSS-фреймворков.
 
-First, run the development server:
+> Дружелюбный production, который хочется обнять.
+
+## Стек
+
+- **Next.js 14** (App Router) + React 18
+- **TypeScript** (strict)
+- **SCSS-модули** (`*.module.scss`) + один глобальный `src/app/globals.scss` с дизайн-токенами и ресетом
+- **Шрифты:** Unbounded (заголовки) + Inter (текст) через `next/font/google`
+- ESLint (`eslint-config-next`) + Prettier
+- **Без Tailwind, без UI-китов** — только чистый SCSS. Это осознанное требование проекта.
+
+## Запуск
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install      # Node 22
+npm run dev      # дев-сервер на http://localhost:3000
+npm run build    # продакшн-сборка (статический вывод)
+npm run start    # запуск собранного приложения
+npm run lint     # ESLint
+npm run format   # Prettier по src/**
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Структура
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/
+    globals.scss      # дизайн-токены (CSS custom properties), ресет, базовая типографика
+    fonts.ts          # Unbounded + Inter
+    layout.tsx        # HTML-оболочка, метаданные, инициализация темы до отрисовки
+    page.tsx          # сборка секций лендинга
+  components/
+    Header/           # липкий хедер: логотип >_ friend lee, контакты, переключатель темы
+    Hero/             # пиксельный смайлик, бесконечная бегущая строка, CTA, декор
+    About/            # цикл из 3 шагов, анимированная пунктирная SVG-стрелка, счётчики
+    Services/         # 3 повёрнутые брутал-карточки с пиксельными уголками
+    TechStack/        # 3 карточки на лаймовой секции
+    Projects/         # сетка кейсов 2018—2025 с hover-анимациями
+    Footer/           # крупный CTA и контакты
+    PixelSmiley/      # 8x8 пиксель-арт смайлик на CSS-сетке
+    PixelDecor/       # пиксельные молнии / доллары / мини-смайлики (float / glitch / spin)
+    Button/ Reveal/ ThemeToggle/ BackToTop/   # переиспользуемые примитивы
+  data/site.ts        # контент: контакты, услуги, стек, проекты
+  lib/                # useReveal + useCountUp (IntersectionObserver, написаны вручную)
+  styles/_mixins.scss # общие SCSS-миксины
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Брендинг
 
-## Learn More
+Кислотный лайм `#C8F500` на чёрном — фирменная связка. Мотивы: 8-битный смайлик,
+терминальный префикс `>_` в логотипе, пиксельные глитч-элементы, повёрнутые
+брутал-карточки с пиксельными уголками. Дружелюбно и контрастно.
 
-To learn more about Next.js, take a look at the following resources:
+## Анимации (только CSS / SVG)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Бесконечная бегущая строка, scroll-reveal (fade + slide), count-up счётчики,
+анимированная пунктирная SVG-стрелка (`stroke-dashoffset`), build-in анимация
+пиксельного смайлика, плавающий/глитч-декор, hover-микровзаимодействия карточек
+и кнопок, переход переключателя темы. Все анимации уважают `prefers-reduced-motion`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Адаптивность
 
-## Deploy on Vercel
+Mobile-first, брейкпоинты ~480 / 768 / 1024. Используются и CSS **grid**
+(сетка проектов, услуги, стек), и **flex** (хедер, ряды, бегущая строка).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Скриншот
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`docs/screenshot.png` — добавить превью главной страницы (заглушка).
+
+---
+
+Концепт-редизайн. Не аффилирован с правообладателями исходного бренда.
