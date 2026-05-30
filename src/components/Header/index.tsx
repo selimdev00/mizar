@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <a href="#hero" className={styles.logo} aria-label="friend Lee - на главную">
+        <a href="/" className={styles.logo} aria-label="friend Lee - на главную">
           <span className={styles.prompt} aria-hidden="true">
             &gt;
           </span>
