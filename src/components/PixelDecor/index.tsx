@@ -64,8 +64,7 @@ export default function PixelDecor({
   className,
 }: Props) {
   const Content = SHAPES[shape];
-  const variantClass =
-    variant === 'glitch' ? styles.glitch : variant === 'spin' ? styles.spin : '';
+  const variantClass = variant === 'glitch' ? styles.glitch : variant === 'spin' ? styles.spin : '';
 
   return (
     <svg

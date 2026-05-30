@@ -5,7 +5,11 @@ import styles from './Projects.module.scss';
 
 export default function Projects() {
   return (
-    <section className={`section ${styles.projects}`} id="projects" aria-labelledby="projects-title">
+    <section
+      className={`section ${styles.projects}`}
+      id="projects"
+      aria-labelledby="projects-title"
+    >
       <PixelDecor shape="smiley" size={44} variant="spin" style={{ top: '8%', right: '7%' }} />
       <PixelDecor shape="smiley" size={30} style={{ bottom: '12%', left: '5%' }} />
 

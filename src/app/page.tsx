@@ -5,6 +5,7 @@ import Services from '@/components/Services';
 import TechStack from '@/components/TechStack';
 import Projects from '@/components/Projects';
 import Footer from '@/components/Footer';
+import BackToTop from '@/components/BackToTop';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Projects />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }

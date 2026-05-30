@@ -4,7 +4,11 @@ import styles from './Services.module.scss';
 
 export default function Services() {
   return (
-    <section className={`section ${styles.services}`} id="services" aria-labelledby="services-title">
+    <section
+      className={`section ${styles.services}`}
+      id="services"
+      aria-labelledby="services-title"
+    >
       <div className="container">
         <div className={styles.head}>
           <Reveal>

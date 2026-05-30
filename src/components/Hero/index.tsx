@@ -13,12 +13,7 @@ export default function Hero() {
     <section className={styles.hero} id="hero" aria-labelledby="hero-title">
       <PixelDecor shape="bolt" size={42} variant="glitch" style={{ top: '12%', left: '6%' }} />
       <PixelDecor shape="dollar" size={34} style={{ top: '22%', right: '9%' }} />
-      <PixelDecor
-        shape="smiley"
-        size={40}
-        variant="spin"
-        style={{ bottom: '24%', left: '12%' }}
-      />
+      <PixelDecor shape="smiley" size={40} variant="spin" style={{ bottom: '24%', left: '12%' }} />
       <PixelDecor shape="bolt" size={28} variant="glitch" style={{ bottom: '30%', right: '14%' }} />
 
       <div className={`container ${styles.inner}`}>
