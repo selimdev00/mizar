@@ -1,0 +1,124 @@
+.projects {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.head {
+  position: relative;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.title {
+  font-size: clamp(2.2rem, 8vw, 5.5rem);
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.title .accent {
+  color: var(--lime);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.2rem, 2.5vw, 1.8rem);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  min-height: 200px;
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition:
+    transform 0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    background-color 0.4s var(--ease);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200, 245, 0, 0.16), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--lime);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardName {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+  line-height: 1.05;
+  position: relative;
+  z-index: 1;
+}
+
+.cardSummary {
+  color: var(--fg-muted);
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--fg-muted);
+  transition: all 0.3s var(--ease);
+}
+
+.card:hover .tag {
+  border-color: var(--lime);
+  color: var(--lime);
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card::before,
+  .tag {
+    transition: none;
+  }
+  .card:hover {
+    transform: none;
+  }
+}
