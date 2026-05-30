@@ -1,0 +1,97 @@
+@use '../../styles/mixins' as *;
+
+.tech {
+  background: var(--lime);
+  color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.head {
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.kicker {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+}
+
+.title {
+  margin-top: 0.5rem;
+  font-size: clamp(2rem, 6vw, 4rem);
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.card {
+  position: relative;
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+  border-radius: var(--radius);
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+  @include card-lift;
+}
+
+.card[data-i='0'] {
+  transform: rotate(1.4deg);
+}
+.card[data-i='1'] {
+  background: #fff;
+  color: #000;
+  transform: rotate(-1.6deg);
+}
+.card[data-i='2'] {
+  transform: rotate(0.9deg);
+}
+
+/* white pixel-corner accents off top-left for contrast on lime */
+.card::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background: #000;
+  box-shadow:
+    10px 0 0 #000,
+    0 10px 0 #000;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  margin-bottom: 0.9rem;
+  color: var(--lime);
+}
+
+.card[data-i='1'] .cardTitle {
+  color: #000;
+}
+
+.body {
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: rotate(0deg);
+  }
+}
