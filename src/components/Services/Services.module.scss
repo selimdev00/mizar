@@ -1,0 +1,113 @@
+@use '../../styles/mixins' as *;
+
+.services {
+  background: var(--bg-soft);
+  position: relative;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.kicker {
+  color: var(--lime);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+}
+
+.title {
+  font-size: clamp(2rem, 6vw, 4rem);
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.card {
+  position: relative;
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: #000;
+  border: 2px solid #000;
+  @include card-lift;
+}
+
+.card[data-i='0'] {
+  transform: rotate(-1.6deg);
+}
+.card[data-i='1'] {
+  background: #000;
+  color: #fff;
+  border-color: var(--lime);
+  transform: rotate(1.4deg);
+}
+.card[data-i='2'] {
+  transform: rotate(-0.8deg);
+}
+
+/* pixel-corner accent (stair-stepped squares off bottom-right) */
+.card::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  width: 10px;
+  height: 10px;
+  background: var(--lime);
+  box-shadow:
+    -10px 0 0 var(--lime),
+    0 -10px 0 var(--lime);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  line-height: 1.05;
+  margin-bottom: 1.2rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 1rem;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  line-height: 1.4;
+}
+
+.bullet {
+  flex: none;
+  margin-top: 0.45rem;
+  width: 8px;
+  height: 8px;
+  background: var(--lime);
+}
+
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: rotate(0deg);
+  }
+}
