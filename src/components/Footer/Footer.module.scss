@@ -88,6 +88,49 @@
   color: var(--lime);
 }
 
+.terminal {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  display: flex;
+  align-items: center;
+  gap: 0.7ch;
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, monospace;
+  font-size: clamp(1rem, 2.6vw, 1.5rem);
+  color: var(--lime);
+}
+
+.terminal .prompt {
+  color: #fff;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.55ch;
+  height: 1.1em;
+  background: var(--lime);
+  animation: blink 1.1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.author a {
+  color: #fff;
+  transition: color 0.2s var(--ease);
+}
+
+.author a:hover {
+  color: var(--lime);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}
+
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);

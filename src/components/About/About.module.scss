@@ -9,7 +9,7 @@
 }
 
 .lede .accent {
-  color: var(--lime);
+  color: var(--accent-strong);
 }
 
 .note {
@@ -45,12 +45,12 @@
 }
 
 .pill:hover {
-  border-color: var(--lime);
+  border-color: var(--accent-strong);
   transform: translateY(-3px);
 }
 
 .num {
-  color: var(--lime);
+  color: var(--accent-strong);
   font-weight: 800;
 }
 
@@ -58,7 +58,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  color: var(--lime);
+  color: var(--accent-strong);
   font-family: var(--font-display);
   font-weight: 700;
 }
@@ -66,7 +66,7 @@
 .arrow {
   width: clamp(120px, 30vw, 220px);
   height: auto;
-  color: var(--lime);
+  color: var(--accent-strong);
   overflow: visible;
 }
 
@@ -101,7 +101,7 @@
   font-weight: 800;
   font-size: clamp(3rem, 11vw, 6rem);
   line-height: 1;
-  color: var(--lime);
+  color: var(--accent-strong);
 }
 
 .caption {

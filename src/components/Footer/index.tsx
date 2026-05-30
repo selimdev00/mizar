@@ -1,6 +1,6 @@
 import Reveal from '@/components/Reveal';
 import Button from '@/components/Button';
-import PixelDecor from '@/components/PixelDecor';
+import ContactButton from '@/components/ContactButton';
 import { contacts } from '@/data/site';
 import styles from './Footer.module.scss';
 
@@ -9,9 +9,6 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer} id="contacts" aria-labelledby="contacts-title">
-      <PixelDecor shape="dollar" size={36} variant="glitch" style={{ top: '10%', right: '8%' }} />
-      <PixelDecor shape="bolt" size={30} style={{ bottom: '18%', right: '16%' }} />
-
       <div className="container">
         <Reveal>
           <h2 className={styles.cta} id="contacts-title">
@@ -21,7 +18,7 @@ export default function Footer() {
 
         <Reveal delay={80}>
           <div className={styles.actions}>
-            <Button href={contacts.emailHref}>Написать нам</Button>
+            <ContactButton>Написать нам</ContactButton>
             <Button href={contacts.phoneHref} variant="ghost">
               {contacts.phone}
             </Button>
@@ -51,16 +48,16 @@ export default function Footer() {
             <h4>Компания</h4>
             <ul>
               <li>
-                <span>Аккредитованная IT-Компания</span>
+                <a href="/company">Аккредитованная IT-Компания</a>
               </li>
               <li>
-                <a href="#">Юридическая информация</a>
+                <a href="/legal">Юридическая информация</a>
               </li>
               <li>
-                <a href="#projects">Проекты</a>
+                <a href="/projects">Проекты</a>
               </li>
               <li>
-                <a href="#services">Услуги</a>
+                <a href="/services">Услуги</a>
               </li>
             </ul>
           </div>
@@ -77,11 +74,31 @@ export default function Footer() {
           </div>
         </div>
 
+        <Reveal delay={120}>
+          <p className={styles.terminal} aria-label="friend lee: npm run обнял">
+            <span className={styles.prompt} aria-hidden="true">
+              &gt;_
+            </span>
+            <span aria-hidden="true">npm run обнял</span>
+            <span className={styles.cursor} aria-hidden="true" />
+          </p>
+        </Reveal>
+
         <div className={styles.bottom}>
           <span className={styles.logo}>
             <span className={styles.prompt}>&gt;_</span> friend lee
           </span>
-          <span>© {year} friend Lee. Концепт-редизайн.</span>
+          <span className={styles.author}>
+            концепт-редизайн -{' '}
+            <a href="https://selim.services" target="_blank" rel="noopener">
+              Selim
+            </a>
+            <span aria-hidden="true"> · </span>
+            <a href="https://github.com/selimdev00" target="_blank" rel="noopener">
+              github
+            </a>
+          </span>
+          <span>© {year} friend Lee</span>
         </div>
       </div>
     </footer>

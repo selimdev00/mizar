@@ -1,24 +1,19 @@
 import PixelSmiley from '@/components/PixelSmiley';
-import PixelDecor from '@/components/PixelDecor';
-import Button from '@/components/Button';
+import ContactButton from '@/components/ContactButton';
 import styles from './Hero.module.scss';
 
 const MARQUEE_ITEMS = ['Дружелюбный production', '5 лет на рынке', '200+ проектов'];
 
 export default function Hero() {
-  // duplicate items so the -50% translate loops seamlessly
-  const loop = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS];
+  // repeat the set enough that one half of the track exceeds the widest
+  // viewport, then the -50% translate loops seamlessly with no gap
+  const loop = Array.from({ length: 6 }, () => MARQUEE_ITEMS).flat();
 
   return (
     <section className={styles.hero} id="hero" aria-labelledby="hero-title">
-      <PixelDecor shape="bolt" size={42} variant="glitch" style={{ top: '12%', left: '6%' }} />
-      <PixelDecor shape="dollar" size={34} style={{ top: '22%', right: '9%' }} />
-      <PixelDecor shape="smiley" size={40} variant="spin" style={{ bottom: '24%', left: '12%' }} />
-      <PixelDecor shape="bolt" size={28} variant="glitch" style={{ bottom: '30%', right: '14%' }} />
-
       <div className={`container ${styles.inner}`}>
         <div className={styles.smileyWrap}>
-          <PixelSmiley label="Пиксельный смайлик friend Lee" />
+          <PixelSmiley animated={false} label="Смайлик friend Lee" />
         </div>
 
         <div className={styles.copy}>
@@ -26,10 +21,10 @@ export default function Hero() {
             Дружелюбный <span className={styles.accent}>production</span>
           </h1>
           <p className={styles.subtitle}>
-            Создаем современные web-продукты — от идеи и прототипа до запуска и развития.
+            Создаем современные web-продукты - от идеи и прототипа до запуска и развития.
           </p>
           <div className={styles.cta}>
-            <Button href="#contacts">Обсудить проект</Button>
+            <ContactButton>Обсудить проект</ContactButton>
           </div>
         </div>
       </div>

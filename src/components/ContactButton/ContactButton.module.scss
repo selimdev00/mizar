@@ -1,0 +1,142 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  animation: fade 0.25s var(--ease);
+}
+
+.dialog {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.6rem, 4vw, 2.4rem);
+  animation: pop 0.3s var(--ease);
+}
+
+.close {
+  position: absolute;
+  top: 0.8rem;
+  right: 1.1rem;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--fg-muted);
+  transition: color 0.2s var(--ease);
+}
+
+.close:hover {
+  color: var(--lime);
+}
+
+.kicker {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fg-muted);
+}
+
+.prompt {
+  color: var(--lime);
+}
+
+.heading {
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  line-height: 1.05;
+}
+
+.sub {
+  margin-top: 0.5rem;
+  color: var(--fg-muted);
+}
+
+.channels {
+  margin-top: 1.4rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1.2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-weight: 600;
+  transition:
+    border-color 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.channel:hover {
+  border-color: var(--lime);
+  transform: translateY(-2px);
+}
+
+.channelLabel {
+  font-family: var(--font-display);
+}
+
+.channelValue {
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+.closing {
+  animation: fadeOut 0.24s var(--ease) forwards;
+}
+
+.closing .dialog {
+  animation: popOut 0.24s var(--ease) forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes popOut {
+  to {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .dialog,
+  .closing,
+  .closing .dialog {
+    animation: none;
+  }
+  .channel:hover {
+    transform: none;
+  }
+}

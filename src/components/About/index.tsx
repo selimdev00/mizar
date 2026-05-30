@@ -9,7 +9,7 @@ export default function About() {
       <div className="container">
         <Reveal>
           <h2 className={styles.lede} id="about-title">
-            friend Lee — это студия веб-разработки с{' '}
+            friend Lee - это студия веб-разработки с{' '}
             <span className={styles.accent}>отзывчивым</span> подходом. Понимаем потребности
             клиента.
           </h2>
@@ -43,8 +43,8 @@ export default function About() {
                 strokeLinecap="round"
                 aria-hidden="true"
               >
-                <path className={styles.arrowPath} d="M6 40 C 40 4, 160 4, 192 34" />
-                <path d="M192 34 l -10 -2 M192 34 l -3 10" />
+                <path className={styles.arrowPath} d="M12 30 C 60 0, 168 28, 190 28" />
+                <path d="M178 21 L190 28 L178 35" />
               </svg>
               И так по кругу
             </span>

@@ -3,13 +3,13 @@ import { unbounded, inter } from './fonts';
 import './globals.scss';
 
 export const metadata: Metadata = {
-  title: 'friend Lee — дружелюбный production, который хочется обнять',
+  title: 'friend Lee - дружелюбный production, который хочется обнять',
   description:
-    'friend Lee — студия веб-разработки с отзывчивым подходом. Проектирование, разработка под ключ, техподдержка и развитие. 5 лет на рынке, 200+ проектов.',
+    'friend Lee - студия веб-разработки с отзывчивым подходом. Проектирование, разработка под ключ, техподдержка и развитие. 5 лет на рынке, 200+ проектов.',
   keywords: ['веб-разработка', 'студия', 'дизайн', 'разработка под ключ', 'friend Lee'],
   authors: [{ name: 'friend Lee' }],
   openGraph: {
-    title: 'friend Lee — дружелюбный production',
+    title: 'friend Lee - дружелюбный production',
     description: 'Создаем современные web-продукты. 5 лет на рынке, 200+ проектов.',
     type: 'website',
     locale: 'ru_RU',

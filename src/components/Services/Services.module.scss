@@ -13,7 +13,7 @@
 }
 
 .kicker {
-  color: var(--lime);
+  color: var(--accent-strong);
   font-family: var(--font-display);
   font-weight: 700;
   text-transform: uppercase;
@@ -53,20 +53,6 @@
 }
 .card[data-i='2'] {
   transform: rotate(-0.8deg);
-}
-
-/* pixel-corner accent (stair-stepped squares off bottom-right) */
-.card::after {
-  content: '';
-  position: absolute;
-  right: -10px;
-  bottom: -10px;
-  width: 10px;
-  height: 10px;
-  background: var(--lime);
-  box-shadow:
-    -10px 0 0 var(--lime),
-    0 -10px 0 var(--lime);
 }
 
 .cardTitle {
